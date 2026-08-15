@@ -1,0 +1,113 @@
+@'
+# ==========================================
+# Café Boreal - Git Ignore
+# ==========================================
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Secretos y credenciales
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets/
+credentials/
+credentials.json
+
+# Claves de cifrado
+encryption.key
+encryption.key.*
+key_v1
+key_v2
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+ENV/
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups generados
+*.backup
+*.dump
+*.sql.gz
+deploy/backup/generated/
+
+# Certificados locales generados
+deploy/nginx/certs/
+
+# Node
+node_modules/
+
+# Build
+build/
+dist/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Terraform por prevención
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Evidencias temporales no organizadas
+evidence/temp/
+
+# Minikube
+.minikube/
+
+# Kubernetes secretos locales
+*-secret-local.yaml
+secret-local.yaml
+secrets-local.yaml
+
+# Archivos con claves reales
+*.secret
+*.credentials
+
+# Exportaciones de VM
+*.ova
+*.ovf
+*.vmdk
+*.vhd
+*.vhdx
+*.vdi
+'@ | Set-Content -Path ".\.gitignore" -Encoding UTF8
