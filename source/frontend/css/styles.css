@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+.header {
+    background: #2f241f;
+    color: white;
+    padding: 1rem;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header p {
+    margin: 0.25rem 0 1rem;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    width: min(1200px, 94%);
+    margin: 1rem auto;
+}
+
+section {
+    background: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+form,
+.legacy-controls {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+input,
+button {
+    min-height: 42px;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+
+button {
+    cursor: pointer;
+    background: #4b3428;
+    color: white;
+    border: none;
+}
+
+button.secondary {
+    background: #666;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    padding: 0.6rem;
+}
+
+th {
+    background: #eee;
+}
+
+.status-grid {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.status-ok {
+    color: green;
+}
+
+.status-error {
+    color: red;
+}
+
+pre {
+    overflow-x: auto;
+    background: #111;
+    color: #eee;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#message {
+    display: none;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: 350px;
+    background: #222;
+    color: white;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+@media (min-width: 700px) {
+    form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .legacy-controls {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
