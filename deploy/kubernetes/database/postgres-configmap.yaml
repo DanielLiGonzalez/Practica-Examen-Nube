@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: cafe-boreal
+  labels:
+    app: postgres
+    app.kubernetes.io/part-of: cafe-boreal
+data:
+  POSTGRES_DB: cafe_boreal
+  POSTGRES_USER: cafe_boreal
