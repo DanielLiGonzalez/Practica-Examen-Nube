@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-api
+  namespace: cafe-boreal
+  labels:
+    app: catalog-api
+    app.kubernetes.io/part-of: cafe-boreal
+spec:
+  type: ClusterIP
+
+  selector:
+    app: catalog-api
+
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+      protocol: TCP

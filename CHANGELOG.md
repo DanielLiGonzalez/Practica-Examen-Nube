@@ -168,3 +168,19 @@ Alcance:
 - Documentado el procedimiento de rotación de claves.
 - Implementados scripts de backup y restore de PostgreSQL.
 - Validado backup y restore mediante recuperación real de datos.
+
+## v3-Servicios - 2026-08-16
+
+- Implementada Catalog API con FastAPI, SQLAlchemy y PostgreSQL.
+- Implementado CRUD completo de productos.
+- Implementada Customers API con CRUD completo.
+- Integrado cifrado y descifrado de numero_identidad mediante KEY_V2.
+- Validado que PostgreSQL almacena únicamente ciphertext para numero_identidad.
+- Implementada Orders API con creación, actualización y eliminación de órdenes.
+- Implementado cálculo automático de subtotales y total.
+- Implementado control y restauración de stock.
+- Construidas imágenes Docker non-root para las tres APIs.
+- Desplegadas las tres APIs en Kubernetes con probes y límites de recursos.
+- Configurados Services ClusterIP para las tres APIs.
+- Configurado Ingress Nginx para Catalog, Customers y Orders.
+- Validados health checks, Swagger y OpenAPI de los tres servicios.

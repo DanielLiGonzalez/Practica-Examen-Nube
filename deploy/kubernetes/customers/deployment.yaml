@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customers-api
+  namespace: cafe-boreal
+  labels:
+    app: customers-api
+    app.kubernetes.io/part-of: cafe-boreal
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: customers-api
+
+  template:
+    metadata:
+      labels:
+        app: customers-api
+        app.kubernetes.io/part-of: cafe-boreal
+
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+
+      containers:
+        - name: customers-api
+          image: cafe-boreal/customers-api:v1
+          imagePullPolicy: Never
+
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+
+          env:
+            - name: DB_HOST
+              value: postgres
+
+            - name: DB_PORT
+              value: "5432"
+
+            - name: IDENTITY_KEY_VERSION
+              value: v2
+
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+
+            - secretRef:
+                name: postgres-secret
+
+            - secretRef:
+                name: customer-crypto-secret
+
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 6
+
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+
+            limits:
+              cpu: 500m
+              memory: 256Mi
+
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
