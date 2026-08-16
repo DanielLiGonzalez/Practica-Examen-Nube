@@ -36,19 +36,42 @@ En preparación.
 
 ### v1-Infraestructura
 
-Estado: Pendiente.
+Fecha: 2026-08-15
 
-Alcance:
+Responsable:
 
-- VM Ubuntu Server
-- Docker
-- Kubernetes
-- PostgreSQL
-- Nginx
-- Apache
-- PHP
-- TLS
-- UFW
+DanielLiGonzalez
+
+Estado: Completada y validada.
+
+Principales cambios:
+
+- VM Ubuntu Server 22.04.5 LTS configurada.
+- 4 vCPU, aproximadamente 12 GB RAM y disco raíz ampliado a 76 GB.
+- Acceso SSH configurado para el usuario devops.
+- Docker Engine y Docker Compose instalados y validados.
+- kubectl instalado.
+- Minikube desplegado utilizando el driver Docker.
+- Nodo Kubernetes validado en estado Ready.
+- Ingress Nginx habilitado en Minikube.
+- Namespace cafe-boreal creado.
+- PostgreSQL 16 desplegado mediante StatefulSet.
+- PersistentVolumeClaim de 10 GiB validado en estado Bound.
+- Secret y ConfigMap configurados para PostgreSQL.
+- Conectividad de PostgreSQL comprobada.
+- Nginx instalado como punto frontal.
+- Apache y PHP instalados para el futuro módulo Legacy.
+- Apache configurado en el puerto 8080.
+- Certificado TLS autofirmado generado.
+- HTTPS configurado en Nginx.
+- Redirección HTTP a HTTPS validada.
+- UFW habilitado con política deny incoming.
+- Puertos 22, 80 y 443 permitidos.
+- Validación final completada sin CrashLoopBackOff.
+
+Resultado:
+
+Infraestructura base operativa y lista para iniciar la fase de datos.
 
 ---
 
