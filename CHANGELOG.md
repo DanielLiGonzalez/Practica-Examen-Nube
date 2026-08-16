@@ -155,3 +155,16 @@ Alcance:
 - bitácora
 - evidencias
 - validación final
+
+## v2-Datos - 2026-08-16
+
+- Creado esquema PostgreSQL para products, customers, orders y order_items.
+- Agregada migración reproducible desde una base de datos vacía.
+- Cargados 50 productos y 10 clientes de prueba.
+- Implementado cifrado AES-256-GCM para numero_identidad.
+- Implementado versionado de ciphertext mediante KEY_V1 y KEY_V2.
+- Validada rotación completa KEY_V1 -> KEY_V2.
+- Retirada KEY_V1 del Kubernetes Secret activo.
+- Documentado el procedimiento de rotación de claves.
+- Implementados scripts de backup y restore de PostgreSQL.
+- Validado backup y restore mediante recuperación real de datos.
